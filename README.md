@@ -1,38 +1,21 @@
-# Mill River Mechanical — Claude SMB Workshop Starter Kit
+# 06 Deploy
 
-Mill River Mechanical Co. LLC is a **fictional** HVAC and plumbing contractor in Easthampton, Massachusetts. It is the practice company for the Claude SMB training workshop. Everything in this repository — the company, people, contact details, license numbers and data — is invented for demonstration.
+`generate.py` turns the offsets in `02 Seed data.md` into a dated deployment pack for one demo Monday (S).
 
-This repository does two jobs:
+    python3 generate.py 2026-10-05
 
-1. **Workshop starter kit.** Brand assets, the demo website, and (coming soon) a setup kit with pre-seeded dummy data and instructions.
-2. **Website source.** Vercel deploys the `website/` folder on every push to `main`.
+It writes `out-2026-10-05/`:
 
-**Live demo site:** _URL added after first deploy_
+| File | Use |
+| --- | --- |
+| `CLAUDE PROMPTS.md` | Paste the first prompt into Cowork to seed everything the connectors can reach; paste the second to verify. |
+| `specs/*.md`, `specs/invoices.json` | One instruction file per system. Claude runs one subagent per file in parallel. |
+| `zoho-import/expenses - paid bill history.csv` | Zoho → Purchases → Expenses → Import. Zoho's own expense template, dates MM/DD/YY. |
+| `zoho-import/recurring invoices.csv` | Zoho → Sales → Recurring Invoices → Import. Zoho's own recurring-profile template. |
+| `drive/AR aging.csv`, `drive/AP aging.csv` | Dated snapshots for Drive `03 Finance/` (the Drive spec uploads them). |
+| `MANUAL STEPS.md` | The hand steps, with this run's journal dates and amounts. |
 
-## Repository layout
+The script refuses a date that isn't a Monday. It uses only the Python standard library. To change amounts, names or offsets,
+edit the tables in `02 Seed data.md`. HubSpot, Calendar and Gmail content lives in the script itself.
 
-```
-mill-river-mechanical/
-├── README.md            ← you are here
-├── vercel.json          ← tells Vercel to serve website/ as a static site
-├── brand/               ← full-resolution brand assets (use these in Canva, docs, slides)
-│   ├── README.md        ← colors and usage rules
-│   ├── logo.png
-│   ├── logo-mark.png
-│   └── photos/
-├── website/             ← the one-page demo site (what Vercel serves)
-│   ├── index.html
-│   └── assets/          ← web-sized copies of the brand images
-└── demo-kit/            ← setup kit, dummy data and instructions (coming soon)
-```
-
-## Using the kit
-
-- **Download everything:** green **Code** button → **Download ZIP**.
-- **Brand assets:** see [`brand/README.md`](brand/README.md).
-- **Website:** see [`website/README.md`](website/README.md).
-- **Demo data and setup instructions:** see [`demo-kit/`](demo-kit/).
-
-## Notice
-
-Fictional demonstration business. No real services are offered, and no real customer, employee or financial data is included.
+Tested for S = 2026-09-28 (matches the first live build exactly) and S = 2027-01-11.
