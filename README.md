@@ -1,35 +1,38 @@
-# Mill River Mechanical — demo website
+# Mill River Mechanical — Claude SMB Workshop Starter Kit
 
-A one-page static site. No build step, no backend, no secrets.
+Mill River Mechanical Co. LLC is a **fictional** HVAC and plumbing contractor in Easthampton, Massachusetts. It is the practice company for the Claude SMB training workshop. Everything in this repository — the company, people, contact details, license numbers and data — is invented for demonstration.
 
-## Files
+This repository does two jobs:
+
+1. **Workshop starter kit.** Brand assets, the demo website, and (coming soon) a setup kit with pre-seeded dummy data and instructions.
+2. **Website source.** Vercel deploys the `website/` folder on every push to `main`.
+
+**Live demo site:** _URL added after first deploy_
+
+## Repository layout
 
 ```
-website/
-├── index.html
-└── assets/
-    ├── logo.png                  (trimmed, web-sized logo)
-    ├── favicon.png               (house mark)
-    ├── hero-hvac-service.jpg
-    ├── heat-pump-water-heater.jpg
-    ├── minisplit-installation.jpg
-    └── crew-end-of-day.jpg
+mill-river-mechanical/
+├── README.md            ← you are here
+├── vercel.json          ← tells Vercel to serve website/ as a static site
+├── brand/               ← full-resolution brand assets (use these in Canva, docs, slides)
+│   ├── README.md        ← colors and usage rules
+│   ├── logo.png
+│   ├── logo-mark.png
+│   └── photos/
+├── website/             ← the one-page demo site (what Vercel serves)
+│   ├── index.html
+│   └── assets/          ← web-sized copies of the brand images
+└── demo-kit/            ← setup kit, dummy data and instructions (coming soon)
 ```
 
-Photos are compressed JPG copies (1536 px wide) of the originals in `brand/photos/`.
+## Using the kit
 
-## Deploy
+- **Download everything:** green **Code** button → **Download ZIP**.
+- **Brand assets:** see [`brand/README.md`](brand/README.md).
+- **Website:** see [`website/README.md`](website/README.md).
+- **Demo data and setup instructions:** see [`demo-kit/`](demo-kit/).
 
-Vercel is connected to this repository. Pushing to `main` redeploys the site. The root `vercel.json` sets the output directory to `website/` with no build command, so no project settings are needed.
+## Notice
 
-To preview locally: `cd website && python3 -m http.server 8000`, then open http://localhost:8000.
-
-## Page notes
-
-- Brand kit colors: navy #12365B, river blue #5D99C9, paper #FAF9F7, ink #1A1A1A.
-- Flame orange #E85A30 appears once, as the short bar under the hero headline.
-- The logo sits only on white (header) or paper (footer).
-- Contact details: 112 Pleasant St, Easthampton, MA 01027 · 413-555-0100 · Mon–Fri 7:30–4:30 · millrivermech@gmail.com · licenses #MP-11482 and #RT-7734.
-- Claims ruled out by the build brief are omitted: 24/7 service, free estimates, warranties, financing, reviews, awards and similar.
-- The footer carries the fictional-demo notice.
-- `<meta name="robots" content="noindex">` keeps search engines from listing the page.
+Fictional demonstration business. No real services are offered, and no real customer, employee or financial data is included.
