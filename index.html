@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mill River Mechanical | HVAC &amp; Plumbing, Easthampton MA</title>
+  <meta name="description" content="Mill River Mechanical is a fictional Easthampton, Massachusetts HVAC and plumbing contractor. Demonstration website.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#12365B">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <style>
+    :root{
+      --navy:#12365B; --navy-deep:#0C2742; --river:#5D99C9; --river-soft:#E6EFF7;
+      --flame:#E85A30; --paper:#FAF9F7; --white:#FFFFFF; --ink:#1A1A1A;
+      --muted:#55606B; --line:#E3E1DC;
+      --radius:14px; --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:800;color:var(--river)}
+
+    /* Top bar */
+    .topbar{background:var(--navy);color:#fff;font-size:.84rem}
+    .topbar .container{display:flex;justify-content:space-between;gap:16px;padding:8px 0;flex-wrap:wrap}
+    .topbar a{text-decoration:none;font-weight:700}
+
+    /* Header: logo sits on white only */
+    header{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--line)}
+    nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand img{width:190px;height:auto}
+    .navlinks{display:flex;align-items:center;gap:28px;font-weight:700;font-size:.94rem;color:var(--navy)}
+    .navlinks a{text-decoration:none}
+    .navlinks a:hover{color:var(--river)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 22px;font-weight:800;text-decoration:none;transition:transform .15s,box-shadow .15s;border:2px solid transparent}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(18,54,91,.18)}
+    .btn-navy{background:var(--navy);color:#fff}
+    .btn-white{background:#fff;color:var(--navy)}
+    .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+    .mobile-cta{display:none}
+
+    /* Hero */
+    .hero{min-height:600px;position:relative;display:grid;align-items:end;overflow:hidden;background:var(--navy-deep)}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,39,66,.88) 0%,rgba(12,39,66,.6) 45%,rgba(12,39,66,.1) 80%),linear-gradient(0deg,rgba(12,39,66,.55),transparent 55%)}
+    .hero-content{position:relative;z-index:2;color:#fff;padding:110px 0 88px;max-width:700px}
+    .hero .eyebrow{color:#BFD8EE}
+    h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:1;letter-spacing:-.04em;margin:14px 0 20px}
+    /* The page's single flame-orange element */
+    .flame-rule{display:block;width:72px;height:5px;border-radius:3px;background:var(--flame);margin-bottom:22px}
+    .hero p{font-size:1.18rem;max-width:600px;color:#EAF1F7;margin:0 0 30px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+    section{padding:88px 0}
+    .section-head{max-width:720px;margin-bottom:42px}
+    .section-head h2{font-size:clamp(2rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.03em;margin:8px 0 14px;color:var(--navy)}
+    .section-head p{color:var(--muted);font-size:1.05rem;margin:0}
+
+    /* Services */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .card img{aspect-ratio:4/3;object-fit:cover;width:100%}
+    .card-body{padding:24px}
+    .card h3{margin:0 0 8px;font-size:1.25rem;color:var(--navy)}
+    .card p{margin:0;color:var(--muted)}
+    .also{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:var(--river-soft);color:var(--navy);font-weight:700;font-size:.88rem;padding:8px 14px;border-radius:999px}
+
+    /* About */
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+    .about-photo{border-radius:var(--radius);overflow:hidden}
+    .about-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+    .checklist{display:grid;gap:12px;margin:26px 0;padding:0;list-style:none}
+    .checklist li{display:flex;gap:12px;color:var(--muted)}
+    .checklist li:before{content:"✓";color:var(--river);font-weight:900}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .stat{background:var(--paper);border-radius:12px;padding:18px}
+    .stat strong{display:block;font-size:1.5rem;color:var(--navy)}
+    .stat span{font-size:.86rem;color:var(--muted)}
+
+    /* Gallery */
+    .gallery{background:var(--navy);color:#fff}
+    .gallery .section-head h2{color:#fff}
+    .gallery .section-head p{color:#C9D7E4}
+    .gallery .eyebrow{color:#BFD8EE}
+    .gallery-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+    .gallery-grid .photo{border-radius:var(--radius);overflow:hidden;min-height:250px}
+    .gallery-grid img{width:100%;height:100%;object-fit:cover}
+    .gallery-main{grid-row:span 2}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+    .contact-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px}
+    .contact-card h3{margin:0 0 18px;color:var(--navy);font-size:1.2rem}
+    .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+    .contact-list b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--river)}
+    .contact-list a{font-weight:700;color:var(--navy);text-decoration:none}
+    .contact-list a:hover{text-decoration:underline}
+
+    /* Footer: paper background so the logo never sits on navy */
+    footer{background:var(--paper);border-top:1px solid var(--line);color:var(--muted);padding:44px 0 28px;font-size:.92rem}
+    .footer-grid{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;flex-wrap:wrap}
+    .footer-brand img{width:200px}
+    .licenses{margin-top:6px;font-size:.84rem}
+    footer small{display:block;margin-top:26px;color:#7A838C;font-size:.78rem;max-width:760px}
+
+    @media (max-width:860px){
+      .navlinks{display:none}.mobile-cta{display:inline-flex}
+      .cards,.about-grid,.gallery-grid,.contact-grid{grid-template-columns:1fr}
+      .gallery-main{grid-row:auto}
+      section{padding:64px 0}
+      .hero{min-height:560px}
+    }
+    @media (max-width:560px){
+      .container{width:calc(100% - 32px)}
+      nav{height:68px}.brand img{width:150px}
+      .topbar .container{justify-content:center;text-align:center}
+      .hero-content{padding:84px 0 56px}
+      .hero p{font-size:1.05rem}
+      .actions .btn{width:100%}
+      .stats{grid-template-columns:1fr 1fr 1fr}
+      .stat{padding:14px}.stat strong{font-size:1.2rem}
+      .contact-card{padding:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container">
+    <span>Serving Easthampton and the Pioneer Valley</span>
+    <span>Office <a href="tel:+14135550100">413-555-0100</a> · Mon–Fri 7:30–4:30</span>
+  </div></div>
+
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Mill River Mechanical home"><img src="assets/logo.png" alt="Mill River Mechanical"></a>
+        <div class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#work">Our Work</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn-navy" href="#contact">Request a Quote</a>
+        </div>
+        <a class="btn btn-navy mobile-cta" href="#contact">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Introduction">
+      <img src="assets/hero-hvac-service.jpg" alt="Mill River Mechanical technicians servicing HVAC equipment outside a home" fetchpriority="high">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">HVAC · Plumbing · Service &amp; Installation</div>
+          <h1>Comfort you can count on.</h1>
+          <span class="flame-rule" aria-hidden="true"></span>
+          <p>Heating, cooling and plumbing service for Pioneer Valley homes and businesses — from everyday repairs to heat pump and boiler installations.</p>
+          <div class="actions">
+            <a class="btn btn-white" href="#contact">Request a Quote</a>
+            <a class="btn btn-ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What we do</div>
+          <h2>Practical service. Quality installation.</h2>
+          <p>From the repair that can't wait to the heating and cooling system you'll rely on for years, we handle the work with a straightforward, professional approach.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <img src="assets/hero-hvac-service.jpg" alt="Technician servicing an outdoor HVAC condenser" loading="lazy">
+            <div class="card-body"><h3>Service &amp; Repair</h3><p>Heating, cooling and plumbing service and repair for homeowners — tune-ups, break-fix calls and the everyday problems that keep a house running.</p></div>
+          </article>
+          <article class="card">
+            <img src="assets/heat-pump-water-heater.jpg" alt="Technicians servicing a heat pump water heater indoors" loading="lazy">
+            <div class="card-body"><h3>Heat Pumps, Boilers &amp; Water Heating</h3><p>Heat pump and boiler installations, plus heat pump water heaters and other water-heating systems, installed and serviced with care.</p></div>
+          </article>
+          <article class="card">
+            <img src="assets/minisplit-installation.jpg" alt="Technicians installing a mini-split system in a bedroom" loading="lazy">
+            <div class="card-body"><h3>Mini-Splits &amp; Light Commercial</h3><p>Mini-split installations for bedrooms, additions and hard-to-heat spaces, and service contracts for light commercial customers.</p></div>
+          </article>
+        </div>
+        <div class="also" aria-label="All services">
+          <span class="chip">Residential HVAC service</span><span class="chip">Plumbing service &amp; repair</span><span class="chip">Heat pump installation</span><span class="chip">Boiler installation</span><span class="chip">Heat pump water heaters</span><span class="chip">Mini-split installation</span><span class="chip">Light commercial contracts</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-photo"><img src="assets/crew-end-of-day.jpg" alt="Mill River Mechanical crew loading tools into a service van at the end of the day" loading="lazy"></div>
+        <div>
+          <div class="section-head" style="margin-bottom:0">
+            <div class="eyebrow">Built for the Valley</div>
+            <h2>A small crew with a professional operation.</h2>
+            <p>Mill River Mechanical is an owner-operated HVAC and plumbing contractor based on Pleasant Street in Easthampton, Massachusetts.</p>
+          </div>
+          <ul class="checklist">
+            <li>Residential service and repair</li>
+            <li>Heat pump and boiler installations</li>
+            <li>Light commercial service contracts</li>
+            <li>Clear, practical communication from the first call through completion</li>
+          </ul>
+          <div class="stats">
+            <div class="stat"><strong>14</strong><span>people</span></div>
+            <div class="stat"><strong>2011</strong><span>founded</span></div>
+            <div class="stat"><strong>3</strong><span>service lines</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="work">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The work</div>
+          <h2>Good work looks like a team.</h2>
+          <p>Troubleshooting equipment, installing a new system or loading up after a long day, the goal is the same: leave the job better than we found it.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="photo gallery-main"><img src="assets/minisplit-installation.jpg" alt="Technicians working together on a mini-split installation" loading="lazy"></div>
+          <div class="photo"><img src="assets/heat-pump-water-heater.jpg" alt="Technicians working on a heat pump water heater" loading="lazy"></div>
+          <div class="photo"><img src="assets/crew-end-of-day.jpg" alt="Crew loading tools into a service van" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="section-head">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Ready to get the job done?</h2>
+          <p>Tell us what you need — repair, replacement, installation or ongoing service — and we'll start with a practical conversation. For service requests, call the office during business hours.</p>
+          <div class="actions" style="margin-top:28px">
+            <a class="btn btn-navy" href="tel:+14135550100">Call 413-555-0100</a>
+            <a class="btn btn-white" style="border-color:var(--navy)" href="mailto:millrivermech@gmail.com?subject=Quote%20request">Email for a Quote</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Mill River Mechanical Co. LLC</h3>
+          <ul class="contact-list">
+            <li><b>Office</b>112 Pleasant Street<br>Easthampton, MA 01027</li>
+            <li><b>Phone</b><a href="tel:+14135550100">413-555-0100</a></li>
+            <li><b>Email</b><a href="mailto:millrivermech@gmail.com">millrivermech@gmail.com</a></li>
+            <li><b>Hours</b>Monday–Friday, 7:30 am–4:30 pm</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo.png" alt="Mill River Mechanical" loading="lazy"></div>
+        <div>
+          112 Pleasant Street, Easthampton, MA 01027<br>
+          HVAC · Plumbing · Service &amp; Installation
+          <div class="licenses">MA Master Plumber #MP-11482 · MA Refrigeration Tech #RT-7734</div>
+        </div>
+      </div>
+      <small>Fictional demonstration business. This website is a design/development demo; no real services are offered, and no real customer, employee or financial data is included.</small>
+    </div>
+  </footer>
+</body>
+</html>
